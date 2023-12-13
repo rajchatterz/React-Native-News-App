@@ -10,18 +10,15 @@
     "test": "jest"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^1.21.0",
-    "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
-    "@tanstack/react-query": "^5.13.4",
+    "axios": "^1.6.2",
     "lodash": "^4.17.21",
     "react": "18.2.0",
     "react-native": "0.73.0",
     "react-native-axios": "^0.17.1",
     "react-native-heroicons": "^3.2.0",
     "react-native-linear-gradient": "^2.8.3",
-    "react-native-snap-carousel": "^3.9.1",
     "react-native-splash-screen": "^3.3.0",
     "react-native-webview": "^13.6.3"
   },
