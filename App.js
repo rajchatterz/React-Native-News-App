@@ -10,7 +10,7 @@ const App = () => {
   
   const fetchNews = async () => {
     try {
-      const response = await axios.get(`https://newsapi.org/v2/everything?q=${searchQuery}&from=2023-11-13&sortBy=publishedAt&apiKey=e6624f0c3cf54c51a4285cd8efec8524`)
+      const response = await axios.get(`https://newsapi.org/v2/everything?q=${searchQuery}&from=2023-11-13&sortBy=publishedAt&apiKey=${enter your api}`)
       setNews(response.data.articles)
     } catch (error) {
       console.log("error found while fetching the data", error)
