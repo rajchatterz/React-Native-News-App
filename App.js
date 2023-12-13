@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, StyleSheet, Image } from 'react-native'
 import React, { useState } from 'react'
 import axios from 'axios'
 import SearchInput from './component/SearchInput'
@@ -18,13 +18,19 @@ const App = () => {
   }
   const handleSearch = () => {
     fetchNews()
+    setSearchQuery('')
   } 
   const handleSearchChange = (text) => { 
     setSearchQuery(text)
+    
   }
   const renderItem = ({ item }) => (
-    <View>
-      <Text>{item.title}</Text>
+    <View style={styles.container}>
+      <Image resizeMode='contain' style={styles.imageContainer} source={{ uri: item.urlToImage }} />
+      <View style={styles.infoContainer}>
+        <Text style={styles.infoContainerText}>{item.title}</Text>
+        <Text>{ item.source.name}</Text>
+      </View>
     </View>
   )
   return (
@@ -39,4 +45,34 @@ const App = () => {
   )
 }
 
+const styles = StyleSheet.create({
+  container: {
+    // width: '100%',
+    alignItems: 'center',
+    marginTop:20,
+    borderColor: 'black',
+    borderBottomWidth: 0.3,
+    
+  },
+  imageContainer: {
+    width: 300,
+    height: 170,
+    borderRadius:20,
+    marginHorizontal: 20,
+    
+    
+    
+  },
+  infoContainer: {
+    alignItems: 'center',
+    
+  },
+  infoContainerText: {
+    fontSize: 17,
+    fontWeight: '700',
+    color: 'black',
+    
+  }
+
+})
 export default App
