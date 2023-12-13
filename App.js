@@ -24,7 +24,7 @@ const App = () => {
   const handleSearchChange = (text) => { 
     setSearchQuery(text)
     
-  }
+  } 
   
   const renderItem = ({ item }) => (
     <TouchableOpacity onPress={()=>Linking.openURL(item.url)} style={styles.container}>
@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop:20,
     borderColor: 'black',
-    borderBottomWidth: 0.3,
+    borderBottomWidth: 0.15,
+    paddingVertical:5
     
   },
   imageContainer: {
@@ -67,6 +68,7 @@ const styles = StyleSheet.create({
   },
   infoContainer: {
     alignItems: 'center',
+    marginHorizontal:30
     
   },
   infoContainerText: {
@@ -74,12 +76,14 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: 'black',
     
+    
   },
   bottomText: {
     width:320,
     textAlign:'right',
     fontSize: 13,
-    fontWeight:'500',
+    fontWeight: '500',
+    marginTop:10
   }
 
 })
