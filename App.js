@@ -1,7 +1,8 @@
-import { View, Text, FlatList, StyleSheet, Image } from 'react-native'
+import { View, Text, FlatList, StyleSheet, Image, Button, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import axios from 'axios'
 import SearchInput from './component/SearchInput'
+import { Linking } from 'react-native'
 const App = () => {
   const [news, setNews] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
@@ -24,14 +25,15 @@ const App = () => {
     setSearchQuery(text)
     
   }
+  
   const renderItem = ({ item }) => (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={()=>Linking.openURL(item.url)} style={styles.container}>
       <Image resizeMode='contain' style={styles.imageContainer} source={{ uri: item.urlToImage }} />
       <View style={styles.infoContainer}>
         <Text style={styles.infoContainerText}>{item.title}</Text>
-        <Text>{ item.source.name}</Text>
+        <Text style={styles.bottomText}>{item.source.name}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
   return (
     <View>
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
     
   },
   imageContainer: {
-    width: 300,
+    width: 320,
     height: 170,
     borderRadius:20,
     marginHorizontal: 20,
@@ -72,6 +74,12 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: 'black',
     
+  },
+  bottomText: {
+    width:320,
+    textAlign:'right',
+    fontSize: 13,
+    fontWeight:'500',
   }
 
 })
